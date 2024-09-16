@@ -2,9 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
 import morgan from 'morgan';
-import DBConnection from './src/config/db.js';
+import DBConnection from './src/config/database.js';
 import apiRoutes from './src/routes/api.js';
 import errorHandler from './src/middlewares/errorHandler.js';
+import cron from './src/crons/index.js';
 
 // initialization
 config();
@@ -13,6 +14,9 @@ const PORT = process.env.PORT || 8000;
 
 // database connection
 DBConnection();
+
+// cron
+cron();
 
 // middlewares
 app.use(cors());
