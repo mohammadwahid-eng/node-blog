@@ -4,6 +4,7 @@ import { config } from 'dotenv';
 import morgan from 'morgan';
 import DBConnection from './src/config/db.js';
 import apiRoutes from './src/routes/api.js';
+import errorHandler from './src/middlewares/errorHandler.js';
 
 // initialization
 config();
@@ -21,6 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // routes
 app.use('/api', apiRoutes);
+
+app.use(errorHandler);
 
 // listen
 app.listen(PORT, () => console.log(`Backend running on port: ${PORT}`));
