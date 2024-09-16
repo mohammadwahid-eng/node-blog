@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "joi": "^17.13.3",
+    "validator": "^13.12.0"
+  }
+}
