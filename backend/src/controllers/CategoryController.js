@@ -32,6 +32,19 @@ export const index = async (req, res, next) => {
   }
 }
 
+export const show = async (req, res, next) => {
+  try {
+    const { id: categoryId } = req.params;
+
+    const category = await Category.findById(categoryId).populate('posts', '-category');
+    if( ! category ) return res.status(404).json({ message: 'Category not found' });
+    return res.status(200).json(category);
+
+  } catch(error) {
+    next(error);
+  }
+}
+
 export const store = async (req, res, next) => {
 
   try {

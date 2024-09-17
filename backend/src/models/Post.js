@@ -2,8 +2,7 @@ import { Schema, model } from 'mongoose';
 
 const postSchema = new Schema({
   title: { type: String, trim: true, required: true },
-  content: { type: String, trim: true, required: true },
-  slug: { type: String, trim: true, unique: true, required: true },
+  content: { type: String, trim: true },
   thumbnail: { type: String, trim: true },
   status: { type: String, enum: ['draft', 'published'], default: 'draft' },
   category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },

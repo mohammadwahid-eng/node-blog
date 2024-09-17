@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import authMiddleware from '../middlewares/authMiddleware.js';
-import { destroy, index, show, store, update } from '../controllers/CategoryController.js';
+import { destroy, index, show, store, update } from '../controllers/PostController.js';
 
 const router = Router();
 

@@ -32,6 +32,19 @@ export const index = async (req, res, next) => {
   }
 }
 
+export const show = async (req, res, next) => {
+  try {
+    const { id: tagId } = req.params;
+
+    const tag = await Tag.findById(tagId).populate('posts', '-tags');
+    if( ! tag ) return res.status(404).json({ message: 'Tag not found' });
+    return res.status(200).json(tag);
+
+  } catch(error) {
+    next(error);
+  }
+}
+
 export const store = async (req, res, next) => {
 
   try {
