@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import { config } from 'dotenv';
 import morgan from 'morgan';
 import DBConnection from './src/config/database.js';
@@ -20,6 +21,7 @@ cron();
 
 // middlewares
 app.use(cors());
+app.use(helmet());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

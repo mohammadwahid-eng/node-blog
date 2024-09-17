@@ -1,5 +1,4 @@
 import Joi from 'joi';
-import { ObjectId } from 'mongoose';
 import Category from '../models/Category.js';
 import Tag from '../models/Tag.js';
 import Post from '../models/Post.js';
